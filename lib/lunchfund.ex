@@ -23,15 +23,15 @@ defmodule Lunchfund do
   end
 
   def main do
-    RAJ_GH_USER = System.get_env "RAJ_GH_USER"
-    RAJ_VENMO_USER = System.get_env "RAJ_VENMO_USER"
-    MY_VENMO = System.get_env "MY_VENMO"
-    if get_hours_since_last_commit(RAJ_GH_USER) > 24 do
+    raj_gh = System.get_env "RAJ_GH_USER"
+    raj_venmo = System.get_env "RAJ_VENMO_USER"
+    my_venmo = System.get_env "MY_VENMO"
+    if get_hours_since_last_commit(raj_gh) > 24 do
       mock = true
       if mock do
         IO.puts "MOCKED CHARGE"
       else
-        charge_user(RAJ_VENMO_USER, MY_VENMO, "You didn't commit in 24 hrs", "5.00")
+        charge_user(raj_venmo, my_venmo, "You didn't commit in 24 hrs", "5.00")
       end
     end
   end
