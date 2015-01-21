@@ -26,7 +26,7 @@ defmodule Lunchfund do
     RAJ_GH_USER = System.get_env "RAJ_GH_USER"
     RAJ_VENMO_USER = System.get_env "RAJ_VENMO_USER"
     MY_VENMO = System.get_env "MY_VENMO"
-    if get_hours_since_last_commit(RAJ_GH_USER) do
+    if get_hours_since_last_commit(RAJ_GH_USER) > 24 do
       mock = true
       if mock do
         IO.puts "MOCKED CHARGE"
