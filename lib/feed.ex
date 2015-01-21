@@ -7,6 +7,8 @@ defmodule Mix.Tasks.Feed do
   A test task.
   """
   def run(_) do
+    Github.start
+    Venmo.start
     Lunchfund.main()
   end
 end
