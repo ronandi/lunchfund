@@ -2,7 +2,7 @@ defmodule Venmo do
   use HTTPotion.Base
 
   def process_url(url) do
-    "https://sandbox-api.venmo.com/v1/" <> url
+    "https://api.venmo.com/v1/" <> url
   end
 
   def process_request_headers(headers) do
