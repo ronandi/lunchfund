@@ -27,7 +27,12 @@ defmodule Lunchfund do
     RAJ_VENMO_USER = System.get_env "RAJ_VENMO_USER"
     MY_VENMO = System.get_env "MY_VENMO"
     if get_hours_since_last_commit(RAJ_GH_USER) do
-      charge_user(RAJ_VENMO_USER, MY_VENMO, "You didn't commit in 24 hrs", "5.00")
+      mock = true
+      if mock do
+        IO.puts "MOCKED CHARGE"
+      else
+        charge_user(RAJ_VENMO_USER, MY_VENMO, "You didn't commit in 24 hrs", "5.00")
+      end
     end
   end
 end
