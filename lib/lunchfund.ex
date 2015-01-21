@@ -18,7 +18,8 @@ defmodule Lunchfund do
     end
     headers = %{"Content-type" => "application/x-www-form-urlencoded"}
     body = URI.encode_query([access_token: token, user_id: user, note: note, amount: -amount])
-    resp_body = Venmo.post("payments", body, headers).body
+    IO.inspect body
+    {:ok, resp_body} = Venmo.post("payments", body, headers).body
     "charge" = resp_body.data.payment.action
   end
 
